@@ -1,118 +1,108 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
-<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
-<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.xsd">
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
-		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-		<title lang="en-gb">Who posted?</title>
-		<description lang="en-gb">This MOD will allow users to view who posted in a topic. It was inspired by a vBulletin feature.</description>
-		<author-notes lang="en-gb">This is a MOD that i made for phpBB2, and now am porting it for phpBB3. It's more or less a complete rewrite. The main query still looks a bit like the phpBB2 one, but other than that it's a totally new MOD code-wise.
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version) at phpbbmodders.net"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Who posted?]]></title>
+		<description lang="en"><![CDATA[This MOD will allow users to view who posted in a topic. It was inspired by a vBulletin feature.]]></description>
+		<author-notes lang="en"><![CDATA[This is a MOD that i made for phpBB2, and now am porting it for phpBB3. It's more or less a complete rewrite. The main query still looks a bit like the phpBB2 one, but other than that it's a totally new MOD code-wise.
 
-Thanks to poyntesm and Highway of Life for helping me dive into the phpBB3 world!</author-notes>
+Thanks to poyntesm and Highway of Life for helping me dive into the phpBB3 world!]]></author-notes>
 		<author-group>
 			<author>
-				<realname>Igor Wiedler</realname>
-				<email>evil@phpbbmodders.net</email>
-				<username>eviL&lt;3</username>
-				<homepage>http://phpbbmodders.net</homepage>
-				<contributions />
+				<realname><![CDATA[Igor Wiedler]]></realname>
+				<username><![CDATA[eviL<3]]></username>
+				<homepage><![CDATA[http://phpbbmodders.net]]></homepage>
+				<contributions-group>
+					<contributions status="past" from="2007-03-04" to="2011-06-01" position="Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<realname><![CDATA[Jari Kanerva]]></realname>
+				<username><![CDATA[tumba25]]></username>
+				<homepage><![CDATA[http://phpbbmodders.net]]></homepage>
+				<contributions-group>
+					<contributions status="current" from="2011-06-01" position="Developer"/>
+				</contributions-group>
 			</author>
 		</author-group>
-		<mod-version>
-			<major>1</major>
-			<minor>0</minor>
-			<revision>0</revision>
-		</mod-version>
+		<mod-version>1.1.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>
-				<target-primary>3.0.0</target-primary>
-				<target-major allow="exact">3</target-major>
-				<target-minor allow="exact">0</target-minor>
-			</target-version>
+			<target-version>3.0.8</target-version>
 		</installation>
 		<history>
 			<entry>
 				<date>2007-03-04</date>
-				<rev-version>
-					<major>0</major>
-					<minor>1</minor>
-					<revision>0</revision>
-				</rev-version>
-				<changelog lang="en-gb">
-					<change>Initial release</change>
+				<rev-version>0.1.0.</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Initial release]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2007-03-04</date>
-				<rev-version>
-					<major>0</major>
-					<minor>1</minor>
-					<revision>1</revision>
-				</rev-version>
-				<changelog lang="en-gb">
-					<change>Updated to use $db->sql_build_query();</change>
-					<change>Misc suggestions by Highway of Life (get_username_string(), spacing, unneeded (int))</change>
+				<rev-version>0.1.1.</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Updated to use $db->sql_build_query();]]></change>
+					<change><![CDATA[Misc suggestions by Highway of Life (get_username_string(), spacing, unneeded (int))]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2007-04-10</date>
-				<rev-version>
-					<major>0</major>
-					<minor>1</minor>
-					<revision>2</revision>
-				</rev-version>
-				<changelog lang="en-gb">
-					<change>Moved language file out of /mods/ directory</change>
-					<change>Improved styles selection</change>
-					<change>Prosilver support</change>
+				<rev-version>0.1.2.</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Moved language file out of /mods/ directory]]></change>
+					<change><![CDATA[Improved styles selection]]></change>
+					<change><![CDATA[Prosilver support]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2007-04-11</date>
-				<rev-version>
-					<major>0</major>
-					<minor>1</minor>
-					<revision>3</revision>
-				</rev-version>
-				<changelog lang="en-gb">
-					<change>Moderation support</change>
-					<change>Improved subsilver template</change>
+				<rev-version>0.1.3.</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Moderation support]]></change>
+					<change><![CDATA[Improved subsilver template]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2008-01-12</date>
-				<rev-version>
-					<major>1</major>
-					<minor>0</minor>
-					<revision>0</revision>
-				</rev-version>
-				<changelog lang="en-gb">
-					<change>Updated for gold!</change>
+				<rev-version>1.0.0.</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Updated for gold!]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-06-01</date>
+				<rev-version>1.1.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[MODX update]]></change>
 				</changelog>
 			</entry>
 		</history>
 	</header>
 	<action-group>
 		<copy>
-			<file from="root/includes/functions_who_posted.php" to="includes/functions_who_posted.php" />
-			<file from="root/language/en/mods/who_posted.php" to="language/en/mods/who_posted.php" />
+			<file from="root/includes/functions_who_posted.php" to="includes/functions_who_posted.php"/>
+			<file from="root/language/en/mods/who_posted.php" to="language/en/mods/who_posted.php"/>
 		</copy>
 		<open src="posting.php">
 			<edit>
-				<find>			upload_popup();
+				<find><![CDATA[			upload_popup();
 			garbage_collection();
 			exit_handler();
 		}
-	break;</find>
-				<action type="after-add">//-- mod : Who posted ------------------------------------------------------------
+	break;]]></find>
+				<action type="after-add"><![CDATA[//-- mod : Who posted ------------------------------------------------------------
 //-- add
 	case 'who_posted':
 		include($phpbb_root_path . 'includes/functions_who_posted.' . $phpEx);
 		who_posted($topic_id);
 	break;
-//-- fin mod : Who posted --------------------------------------------------------</action>
+//-- fin mod : Who posted --------------------------------------------------------]]></action>
 			</edit>
 		</open>
 		<open src="viewforum.php">
