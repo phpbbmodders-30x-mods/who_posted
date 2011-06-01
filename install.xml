@@ -88,6 +88,7 @@ Thanks to poyntesm and Highway of Life for helping me dive into the phpBB3 world
 		<copy>
 			<file from="root/includes/functions_who_posted.php" to="includes/functions_who_posted.php"/>
 			<file from="root/language/en/mods/who_posted.php" to="language/en/mods/who_posted.php"/>
+			<file from="root/styles/prosilver/template/posting_who_posted.html" to="styles/prosilver/template/posting_who_posted.html"/>
 		</copy>
 		<open src="posting.php">
 			<edit>
@@ -112,6 +113,16 @@ Thanks to poyntesm and Highway of Life for helping me dive into the phpBB3 world
 //-- add
 			'U_WHO_POSTED'			=> append_sid("{$phpbb_root_path}posting.$phpEx", "mode=who_posted&amp;t=$topic_id&amp;f=$forum_id"),
 //-- fin mod : Who posted --------------------------------------------------------]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/viewforum_body.html">
+			<edit>
+				<find><![CDATA[{topicrow.REPLIES}]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[{topicrow.REPLIES}]]></inline-find>
+					<inline-action type="before-add"><![CDATA[<a href="{topicrow.U_WHO_POSTED}" onclick="window.open(this.href,'','statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=500,height=300'); return false;">]]></inline-action>
+					<inline-action type="after-add"><![CDATA[</a>]]></inline-action>
+				</inline-edit>
 			</edit>
 		</open>
 	</action-group>
