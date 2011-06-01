@@ -93,8 +93,7 @@ Thanks to poyntesm and Highway of Life for helping me dive into the phpBB3 world
 		<open src="posting.php">
 			<edit>
 				<find><![CDATA[			upload_popup();
-			garbage_collection();
-			exit_handler();
+			return;
 		}
 	break;]]></find>
 				<action type="after-add"><![CDATA[//-- mod : Who posted ------------------------------------------------------------
