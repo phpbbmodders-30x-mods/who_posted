@@ -12,7 +12,6 @@
 */
 if (!defined('IN_PHPBB'))
 {
-	echo '<a href="http://phpbbmodders.net/goto/who_posted_phpbb3">Who Posted?</a> &copy; 2007 eviL&lt;3';
 	exit;
 }
 
@@ -20,13 +19,13 @@ if (!defined('IN_PHPBB'))
  * Who Posted?
  *
  * @param int $topic_id
- * @return void 
+ * @return void
  */
 function who_posted($topic_id)
 {
 	global $auth, $db, $user, $template;
 	global $phpEx, $phpbb_root_path;
-	
+
 	// make sure the topic exists
 	$sql = 'SELECT topic_id, topic_approved, forum_id
 		FROM ' . TOPICS_TABLE . '
@@ -34,15 +33,15 @@ function who_posted($topic_id)
 	$result = $db->sql_query_limit($sql, 1);
 	$row = $db->sql_fetchrow($result);
 	$db->sql_freeresult($result);
-	
+
 	if (!$row)
 	{
 		$topic_id = 0;
 	}
-	
+
 	// which forum id to use
 	$forum_id = ($row['forum_id']) ? (int) $row['forum_id'] : request_var('f', 0);
-	
+
 	if ($forum_id)
 	{
 		// get style data
@@ -52,7 +51,7 @@ function who_posted($topic_id)
 		$result = $db->sql_query_limit($sql, 1);
 		$style_row = $db->sql_fetchrow($result);
 		$db->sql_freeresult($result);
-		
+
 		if (!$style_row)
 		{
 			// if you provide a forum_id, it better be right
@@ -63,7 +62,7 @@ function who_posted($topic_id)
 			$forum_style = $style_row['forum_style'];
 		}
 	}
-	
+
 	if ($forum_id && (!$auth->acl_get('f_list', $forum_id) || (!$auth->acl_get('m_approve', $forum_id) && !$row['topic_approved'])))
 	{
 		// check permissions for seing forum
@@ -79,9 +78,9 @@ function who_posted($topic_id)
 			$topic_id = 0;
 		}
 	}
-	
+
 	$lang_load = 'mods/who_posted';
-	
+
 	// Setup language and style
 	if ($topic_id && isset($forum_style))
 	{
@@ -91,13 +90,13 @@ function who_posted($topic_id)
 	{
 		$user->setup($lang_load);
 	}
-	
+
 	// if we have no topic id (or it was set to 0), display an error
 	if (!$topic_id)
 	{
 		trigger_error('NO_TOPIC');
 	}
-	
+
 	// main query: select all the data for users and posts (thanks to poyntesm for documenting this so niceley)
 	$sql_ary = array(
 		'SELECT'	=> 'u.username, u.user_id, u.user_colour, COUNT(DISTINCT p.post_id) as posts, p.post_username',
@@ -109,13 +108,13 @@ function who_posted($topic_id)
 		'GROUP_BY'	=> 'u.username, p.post_username',
 		'ORDER_BY'	=> 'posts DESC, u.username_clean ASC, p.post_username ASC',
 	);
-	
+
 	// hide unapproved posts for users without approve permission
 	if (!$auth->acl_get('m_approve', $forum_id))
 	{
 		$sql_ary['WHERE'] .= ' AND p.post_approved = 1';
 	}
-	
+
 	$result = $db->sql_query($db->sql_build_query('SELECT', $sql_ary));
 	while ($row = $db->sql_fetchrow($result))
 	{
@@ -127,18 +126,18 @@ function who_posted($topic_id)
 		));
 	}
 	$db->sql_freeresult($result);
-	
+
 	$template->set_filenames(array(
 		'body' => 'posting_who_posted.html',
 	));
-	
+
 	page_header($user->lang['WHOPOSTED_TITLE']);
-	
+
 	// some last tpl assignements
 	$template->assign_vars(array(
 		'U_CLOSE'	=> append_sid("{$phpbb_root_path}viewtopic.$phpEx", "t=$topic_id" . ($forum_id ? "&amp;f=$forum_id" : '')),
 	));
-	
+
 	page_footer();
 }
 
